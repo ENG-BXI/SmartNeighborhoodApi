@@ -9,7 +9,7 @@ const DashBoard = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 3000);
   });
   return (
     <div className='d-flex min-vh-100'>
