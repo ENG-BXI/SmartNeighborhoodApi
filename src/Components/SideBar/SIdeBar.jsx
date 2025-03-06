@@ -11,6 +11,7 @@ let SideBarItemData = [
   {icon: Handshake, title: 'الاتفاقات'},
   {icon: Hand, title: 'التعهدات'},
   {icon: Iconanoon, title: 'المساعدات'},
+  {icon: Security, title: 'الامن'},
   {icon: TaskList, title: 'خطط الازمات'},
   {icon: HelpIcon, title: 'المناشدات'}
 ];
