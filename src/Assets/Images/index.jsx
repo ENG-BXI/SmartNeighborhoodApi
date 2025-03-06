@@ -19,3 +19,7 @@ export {default as Neighborhood_3} from './neighborhood-3.svg';
 export {default as Neighborhood_1_Person} from './Neighborhood_1_Person.svg';
 export {default as Neighborhood_2_Person} from './Neighborhood_2_Person.svg';
 export {default as Neighborhood_3_Person} from './Neighborhood_3_Person.svg';
+export {default as LoginImage} from './Auth/LoginImage.svg';
+export {default as GoogleLogo} from './Auth/googleLogo.svg';
+export {default as FacebookLogo} from './Auth/facebookLogo.svg';
+export {default as AppleLogo} from './Auth/appleLogo.svg';
