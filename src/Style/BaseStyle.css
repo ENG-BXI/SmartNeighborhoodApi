@@ -1,3 +1,11 @@
-:root{
-    --main-color:#2E3281
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+
+:root {
+    --main-color: #2E3281;
+    --text-alt-color:rgba(255,255,255,0.7);
+    --bg-gray:#C1C3F6;
+}
+
+body {
+    font-family: "Tajawal", sans-serif !important;
 }

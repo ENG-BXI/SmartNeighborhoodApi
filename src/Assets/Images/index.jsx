@@ -1,0 +1,11 @@
+export {default as logoImage} from './Logo.svg';
+export {default as BiBuildings} from './BiBuildings.svg';
+export {default as FluentMegaphoneLoud} from './FluentMegaphoneLoud.svg';
+export {default as HelpIcon} from './HelpIcon.svg';
+export {default as Iconanoon} from './Iconanoon.svg';
+export {default as PersonIcon} from './PersonIcon.svg';
+export {default as Handshake} from './Handshake.svg';
+export {default as Security} from './Security.svg';
+export {default as Hand} from './Hand.svg';
+export {default as TaskList} from './TaskList.svg';
+export {default as Logout} from './Logout.svg';

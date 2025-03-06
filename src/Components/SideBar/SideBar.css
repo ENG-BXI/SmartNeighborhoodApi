@@ -1,0 +1,35 @@
+aside {
+    width: 320px;
+    background-color: var(--main-color);
+}
+
+.group-title {
+    margin-top: 3rem;
+    font-size: 23px;
+    color: var(--text-alt-color);
+}
+
+.side-bar-item {
+    padding-block: 0.8rem;
+    cursor: pointer;
+}
+.side-bar-item img {
+    fill: red;
+    color: red;
+}
+
+.side-bar-item.active {
+    color: var(--main-color);
+    background-color: var(--bg-gray);
+}
+
+.side-bar-item:hover:not(.active) {
+    background-color: #b3b5f7;
+    color: var(--main-color);
+}
+.line{
+    height: 1px;
+    background-color:#636AE8;
+    margin-block: 1rem;
+    width: 100%;
+}
