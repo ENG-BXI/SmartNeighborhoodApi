@@ -1,6 +1,6 @@
 import React from 'react';
 import './Building.css';
-import {Neighborhood_1, Neighborhood_1_Person, Neighborhood_2, Neighborhood_2_Person, Neighborhood_3, Neighborhood_3_Person, PersonIcon} from '../../../Assets/Images';
+import {Neighborhood_1, Neighborhood_1_Person, Neighborhood_2, Neighborhood_2_Person, Neighborhood_3, Neighborhood_3_Person} from '../../../Assets/Images';
 import NeighborhoodCard from '../../../Components/NeighborhoodCard';
 
 let neighborhoodData = [
