@@ -26,12 +26,12 @@ const EmailVerificationCode = () => {
     }
   };
   // Submit
-  const handleSubmit = e => {
-    e.preventDefault();
-    const enteredOtp = otp.join('');
-    alert(`تم إدخال الرمز: ${enteredOtp}`);
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   const enteredOtp = otp.join('');
+  //   alert(`تم إدخال الرمز: ${enteredOtp}`);
 
-  };
+  // };
   return (
     <div className='d-flex flex-column align-items-center justify-content-center vw-100 vh-100 position-relative'>
       <div style={{width:"300px"}} className=' text-center'>
