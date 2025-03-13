@@ -9,9 +9,9 @@ function LoadingPage() {
     };
   });
   return (
-    <div className='loading-page bg-white vw-100 vh-100 position-absolute d-flex align-items-center justify-content-center'>
+    <div className='loading-page bg-white vw-100 h-100 position-absolute d-flex align-items-center justify-content-center'>
       <div className='d-flex row-gap-3 flex-column align-items-center justify-content-center'>
-        <img className='logo-image' src={logoImage} width={'130px'} alt='logoImage' />
+        <img className='logo-image' src={logoImage} width={'100px'} alt='logoImage' />
         <h3>الحارة الذكية</h3>
       </div>
     </div>

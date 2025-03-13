@@ -6,15 +6,26 @@ import Login from './Pages/Auth/Login';
 import EmailVerificationCode from './Pages/Auth/EmailVerificationCode';
 import SetNewPassword from './Pages/Auth/SetNewPassword';
 import ResetPassword from './Pages/Auth/ResetPassword';
-
+import AddNewFamily from './Layouts/DashBoard/AddNewFamily/AddNewFamily';
+import AddNewSquare from './Layouts/DashBoard/AddNewSquare/AddNewSquare';
+import AddNewPerson from './Layouts/DashBoard/AddNewPerson/AddNewPerson';
+import AddNewFamily2 from './Layouts/DashBoard/AddNewFamily/AddNewFamily2';
+import AddNewPerson2 from './Layouts/DashBoard/AddNewPerson/AddNewPerson2';
+import AddNewPerson3 from './Layouts/DashBoard/AddNewPerson/AddNewPerson3';
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<DashBoard />}>
           <Route path='/' element={<Building />} />
+          <Route path='/add-new-square' element={<AddNewSquare />} />
+          <Route path='/add-new-family' element={<AddNewFamily />} />
+          <Route path='/add-new-family-2' element={<AddNewFamily2 />} />
+          <Route path='/add-new-person' element={<AddNewPerson />} />
+          <Route path='/add-new-person-2' element={<AddNewPerson2 />} />
+          <Route path='/add-new-person-3' element={<AddNewPerson3 />} />
         </Route>
-        <Route path='/*' element={<h2>شتفك شفتك واه تلقي هيا رجع</h2>}/>
+        <Route path='/*' element={<h2>Page Not Found</h2>} />
         <Route path='/login' element={<Login />} />
         <Route path='/reset-password' element={<ResetPassword />} />
         <Route path='/email-verification-code' element={<EmailVerificationCode />} />

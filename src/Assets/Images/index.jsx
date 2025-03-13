@@ -23,3 +23,5 @@ export {default as LoginImage} from './Auth/LoginImage.svg';
 export {default as GoogleLogo} from './Auth/googleLogo.svg';
 export {default as FacebookLogo} from './Auth/facebookLogo.svg';
 export {default as AppleLogo} from './Auth/appleLogo.svg';
+export {default as AddNewFamilyPerson} from './AddNewFamilyPerson.svg';
+export {default as ImageUpload} from './ImageUpload.svg';

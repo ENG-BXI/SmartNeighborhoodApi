@@ -1,12 +1,24 @@
-.line{
+.line {
     background-color: #c0c0c0;
     position: absolute;
     z-index: -1;
 }
-.place-in-line p{
+
+.place-in-line p {
     position: relative;
     right: 1rem;
 }
-.neighborhood-card{
+
+.neighborhood-card {
     width: min-content;
+}
+
+.building .toggle {
+    font-size: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+}
+
+.building .toggle:after {
+    content: none !important;
 }
