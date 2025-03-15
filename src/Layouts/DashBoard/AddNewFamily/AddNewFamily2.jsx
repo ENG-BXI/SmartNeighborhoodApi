@@ -1,13 +1,13 @@
-import React, { useContext } from 'react'
+import React, {useContext} from 'react';
 import HeaderBuilding from '../../../Components/HeaderBuilding';
-import { useNavigate } from 'react-router';
-import { AddNewFamilyPerson } from '../../../Assets/Images';
-import { storeData } from '../../../Hook/StoreDataContext';
+import {useNavigate} from 'react-router';
+import {AddNewFamilyPerson} from '../../../Assets/Images';
+import {storeData} from '../../../Hook/StoreDataContext';
 
 const AddNewFamily2 = () => {
   let nav = useNavigate();
-    let { data, setData } = useContext(storeData);
-  
+  let {data} = useContext(storeData);
+
   return (
     <>
       <HeaderBuilding title={'اضافة اسرة'} />
@@ -47,6 +47,6 @@ const AddNewFamily2 = () => {
       </div>
     </>
   );
-}
+};
 
-export default AddNewFamily2
+export default AddNewFamily2;

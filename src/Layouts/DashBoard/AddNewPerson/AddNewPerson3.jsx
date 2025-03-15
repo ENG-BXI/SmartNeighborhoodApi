@@ -1,15 +1,11 @@
-import React, {useContext, useRef, useState} from 'react';
+import React, {useContext} from 'react';
 import HeaderBuilding from '../../../Components/HeaderBuilding';
 import {useNavigate} from 'react-router';
-import {ImageUpload} from '../../../Assets/Images';
 import {storeData} from '../../../Hook/StoreDataContext';
 
 const AddNewPerson3 = () => {
   let nav = useNavigate();
-  let FileRef = useRef(null);
   let {data, setData} = useContext(storeData);
-  let [image, setImage] = useState(null);
-
   function handelSubmit() {
     // let formData = new FormData();
     // formData.append('fullName', data.fullName);
