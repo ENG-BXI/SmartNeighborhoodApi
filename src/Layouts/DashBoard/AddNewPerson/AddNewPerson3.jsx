@@ -11,18 +11,18 @@ const AddNewPerson3 = () => {
   let [image, setImage] = useState(null);
 
   function handelSubmit() {
-    let formData = new FormData();
-    formData.append('fullName', data.fullName);
-    formData.append('email', data.email);
-    formData.append('phoneNumber', data.phoneNumber);
-    formData.append('identityNumber', data.identityNumber);
-    formData.append('dateOfBirth', data.dateOfBirth);
-    formData.append('gender', data.gender);
-    formData.append('typeOfIdentity', data.typeOfIdentity);
-    formData.append('bloodType', data.bloodType);
-    formData.append('job', data.job);
-    formData.append('status', data.status);
-    formData.append('image', image);
+    // let formData = new FormData();
+    // formData.append('fullName', data.fullName);
+    // formData.append('email', data.email);
+    // formData.append('phoneNumber', data.phoneNumber);
+    // formData.append('identityNumber', data.identityNumber);
+    // formData.append('dateOfBirth', data.dateOfBirth);
+    // formData.append('gender', data.gender);
+    // formData.append('typeOfIdentity', data.typeOfIdentity);
+    // formData.append('bloodType', data.bloodType);
+    // formData.append('job', data.job);
+    // formData.append('status', data.status);
+    // formData.append('image', image);
     // use Form Data
     // for reset storeData
     setData({});
@@ -73,24 +73,6 @@ const AddNewPerson3 = () => {
                 <label htmlFor='s'>اعزب</label>
               </div>
             </div>
-          </div>
-          <input
-            hidden
-            ref={FileRef}
-            onChange={e => {
-              setImage(e.target.files.item(0));
-            }}
-            type='file'
-          />
-          <div
-            style={{cursor: 'pointer'}}
-            onClick={() => {
-              FileRef.current.click();
-            }}
-            className='bg-body-secondary py-5 rounded-4 mb-5'
-          >
-            <img src={ImageUpload} alt='ImageUpload' />
-            <p>انقر لرفع الصورة الشخصية</p>
           </div>
           <button
             onClick={() => {
