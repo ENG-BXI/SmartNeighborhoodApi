@@ -12,6 +12,7 @@ import AddNewPerson from './Layouts/DashBoard/AddNewPerson/AddNewPerson';
 import AddNewFamily2 from './Layouts/DashBoard/AddNewFamily/AddNewFamily2';
 import AddNewPerson2 from './Layouts/DashBoard/AddNewPerson/AddNewPerson2';
 import AddNewPerson3 from './Layouts/DashBoard/AddNewPerson/AddNewPerson3';
+import {StoreData} from './Hook/StoreDataContext';
 function App() {
   return (
     <BrowserRouter>
@@ -19,11 +20,15 @@ function App() {
         <Route path='/' element={<DashBoard />}>
           <Route path='/' element={<Building />} />
           <Route path='/add-new-square' element={<AddNewSquare />} />
-          <Route path='/add-new-family' element={<AddNewFamily />} />
-          <Route path='/add-new-family-2' element={<AddNewFamily2 />} />
-          <Route path='/add-new-person' element={<AddNewPerson />} />
-          <Route path='/add-new-person-2' element={<AddNewPerson2 />} />
-          <Route path='/add-new-person-3' element={<AddNewPerson3 />} />
+          <Route element={<StoreData />}>
+            <Route path='/add-new-family' element={<AddNewFamily />} />
+            <Route path='/add-new-family-2' element={<AddNewFamily2 />} />
+          </Route>
+          <Route element={<StoreData />}>
+            <Route path='/add-new-person' element={<AddNewPerson />} />
+            <Route path='/add-new-person-2' element={<AddNewPerson2 />} />
+            <Route path='/add-new-person-3' element={<AddNewPerson3 />} />
+          </Route>
         </Route>
         <Route path='/*' element={<h2>Page Not Found</h2>} />
         <Route path='/login' element={<Login />} />

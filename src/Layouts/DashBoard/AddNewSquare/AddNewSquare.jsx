@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FormGroupDashBoard from '../../../Components/FormGroupDashBoard';
 import HeaderBuilding from '../../../Components/HeaderBuilding';
 import {useNavigate} from 'react-router';
 
 const AddNewSquare = () => {
   let nav = useNavigate();
+  let [formData, setFormData] = useState({ "blockName": null, "admin": null, "userName": null, "password": null });
   return (
     <>
       <HeaderBuilding title={'اضافة مربع سكني'} />
@@ -16,7 +17,7 @@ const AddNewSquare = () => {
       >
         <div className='w-100'>
           <h3 className='mb-3'>اسم المربع السكني</h3>
-          <FormGroupDashBoard customClass={['mb-3']} placeHolder={'مثلا : مربع محمد سامي'} />
+          <FormGroupDashBoard data={formData} id='blockName' setValue={setFormData} inputType='text' customClass={['mb-3']} placeHolder={'مثلا : مربع محمد سامي'} />
         </div>
         <div className='w-100'>
           <h3 className='mb-4'>مسئول المربع السكني</h3>
@@ -25,18 +26,25 @@ const AddNewSquare = () => {
             <label className='form-label ' htmlFor=''>
               تحديد المسئول
             </label>
-            <select className='form-select' id='' value='d'>
-              <option value='d' disabled>
+            <select
+              className='form-select'
+              value={formData.admin ?? 'default'}
+              onChange={e => {
+                setFormData({...formData, admin: e.target.value});
+              }}
+              id='admin'
+            >
+              <option value='default' disabled>
                 اختر مسئولا
               </option>
-              <option value='s'>sds</option>
-              <option value='s'>sds</option>
-              <option value='s'>sds</option>
-              <option value='s'>sds</option>
+              <option value='s1'>sds</option>
+              <option value='s2'>sds</option>
+              <option value='s3'>sds</option>
+              <option value='s4'>sds</option>
             </select>
           </div>
-          <FormGroupDashBoard label='اسم المستخدم' customClass={['mb-3']} placeHolder={'اسم المستخدم'} />
-          <FormGroupDashBoard label='كلمة المرور' customClass={['mb-3']} inputType='password' placeHolder={'كلمة المرور'} />
+          <FormGroupDashBoard label='اسم المستخدم' data={formData} id='userName' setValue={setFormData} customClass={['mb-3']} placeHolder={'اسم المستخدم'} />
+          <FormGroupDashBoard label='كلمة المرور' data={formData} id='password' setValue={setFormData} customClass={['mb-3']} inputType='password' placeHolder={'كلمة المرور'} />
           <button
             onClick={() => {
               nav('/');
@@ -45,9 +53,14 @@ const AddNewSquare = () => {
           >
             إضافة
           </button>
-          <button  onClick={() => {
+          <button
+            onClick={() => {
               nav(-1);
-            }} className='alt-button w-100 btn'>الفاء</button>
+            }}
+            className='alt-button w-100 btn'
+          >
+            الفاء
+          </button>
         </div>
       </form>
     </>

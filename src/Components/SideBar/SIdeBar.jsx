@@ -23,7 +23,7 @@ function SideBar() {
         <h3>الحارة الذكية</h3>
       </div>
       <GroupTitle title='الأقسام' />
-        {SideBarItemData.map((item, index) => <SideBarItem active={index === 0} icon={item.icon} title={item.title} />)}
+        {SideBarItemData.map((item, index) => <SideBarItem key={index} active={index === 0} icon={item.icon} title={item.title} />)}
         <div className='line'></div>
         <SideBarItem icon={Logout} title="تسجيل الخروج" />
     </aside>

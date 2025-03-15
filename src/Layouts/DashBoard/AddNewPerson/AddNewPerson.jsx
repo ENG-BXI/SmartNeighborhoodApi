@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import HeaderBuilding from '../../../Components/HeaderBuilding';
 import FormGroupDashBoard from '../../../Components/FormGroupDashBoard';
-import { useNavigate } from 'react-router';
+import {useNavigate} from 'react-router';
+import {storeData} from '../../../Hook/StoreDataContext';
 
 const AddNewPerson = () => {
-    let nav = useNavigate();
+  let nav = useNavigate();
+  let { data, setData } = useContext(storeData);
 
   return (
     <>
@@ -17,9 +19,9 @@ const AddNewPerson = () => {
       >
         <div className='w-100'>
           <h3 className='mb-3'>البيانات الشخصية</h3>
-          <FormGroupDashBoard label='الاسم الرباعي' customClass={['mb-4']} placeHolder={'الاسم الرباعي'} />
-          <FormGroupDashBoard label='الايميل' inputType='email' customClass={['mb-4']} placeHolder={'اسم المستخدم'} />
-          <FormGroupDashBoard label='رقم الجوال' customClass={['mb-4']} inputType='number' placeHolder={'رقم الجوال'} />
+          <FormGroupDashBoard label='الاسم الرباعي' data={data} id='fullName'  setValue={setData} customClass={['mb-4']} placeHolder={'الاسم الرباعي'} />
+          <FormGroupDashBoard label='الايميل' data={data} id='email'  setValue={setData} inputType='email' customClass={['mb-4']} placeHolder={'اسم المستخدم'} />
+          <FormGroupDashBoard label='رقم الجوال' data={data} id='phoneNumber'  setValue={setData} customClass={['mb-4']} inputType='number' placeHolder={'رقم الجوال'} />
           <div className='d-flex column-gap-4 mx-2 mb-5'>
             <div className='d-flex column-gap-2'>
               <input type='checkbox' className='form-check-input' id='call' />
@@ -30,7 +32,14 @@ const AddNewPerson = () => {
               <label htmlFor='whatsapp'>واتساب</label>
             </div>
           </div>
-          <button onClick={()=>{nav('/add-new-person-2');}} className='w-100 mb-3 '>التالي</button>
+          <button
+            onClick={() => {
+              nav('/add-new-person-2');
+            }}
+            className='w-100 mb-3 '
+          >
+            التالي
+          </button>
           <button className='alt-button w-100 btn'>الفاء</button>{' '}
         </div>
       </form>

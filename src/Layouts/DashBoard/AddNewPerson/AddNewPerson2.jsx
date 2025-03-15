@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import FormGroupDashBoard from '../../../Components/FormGroupDashBoard';
 import HeaderBuilding from '../../../Components/HeaderBuilding';
 import {useNavigate} from 'react-router';
+import {storeData} from '../../../Hook/StoreDataContext';
 
 const AddNewPerson2 = () => {
   let nav = useNavigate();
-
+  let {data, setData} = useContext(storeData);
   return (
     <>
       <HeaderBuilding title={'اضافة فرد'} />
@@ -23,24 +24,24 @@ const AddNewPerson2 = () => {
             </label>
             <div className='d-flex column-gap-2 justify-content-between'>
               {/* select */}
-              <select className='form-select w-50' id='' value='d'>
-                <option value='d' disabled>
+              <select className='form-select w-50' value={data['typeOfIdentity'] ?? 'default'} onChange={e => setData({...data, typeOfIdentity: e.target.value})} id='typeOfIdentity'>
+                <option value='default' disabled>
                   نوع الهوية
                 </option>
-                <option value='s1'>بطاقة</option>
-                <option value='s2'>جواز سفر</option>
+                <option value='i1'>بطاقة</option>
+                <option value='i2'>جواز سفر</option>
               </select>
-              <FormGroupDashBoard inputType='number' placeHolder={'رقم الهوية'} />
+              <FormGroupDashBoard data={data} id='identityNumber' setValue={setData} inputType='number' placeHolder={'رقم الهوية'} />
             </div>
           </div>
-          <FormGroupDashBoard label='تاريخ الميلاد' inputType='date' customClass={['mb-4']} placeHolder={'الاسم الرباعي'} />
+          <FormGroupDashBoard label='تاريخ الميلاد' data={data} id='dateOfBirth' setValue={setData} inputType='date' customClass={['mb-4']} placeHolder={'الاسم الرباعي'} />
           <div className='text-end mb-4'>
             <label className='mb-2' htmlFor=''>
               فصيلة الدم
             </label>
             {/* select */}
-            <select className='form-select ' id='' value='d'>
-              <option value='d' disabled>
+            <select className='form-select ' value={data['bloodType'] ?? 'default'} onChange={e => setData({...data, bloodType: e.target.value})} id='bloodType'>
+              <option value='default' disabled>
                 حدد فصيلة دمك
               </option>
               <option value='s1'>بطاقة</option>
@@ -53,11 +54,11 @@ const AddNewPerson2 = () => {
             </label>
             <div style={{accentColor: 'var(--main-color)'}} className='d-flex column-gap-4'>
               <div className='d-flex column-gap-2'>
-                <input type='radio' name='gender' id='m' />
+                <input type='radio' value={data.gender} onChange={e => setData({...data, gender: e.target.id})} id='m' name='gender' />
                 <label htmlFor='m'>ذكر</label>
               </div>
               <div className='d-flex column-gap-2'>
-                <input type='radio' name='gender' id='f' />
+                <input type='radio' value={data.gender} onChange={e => setData({...data, gender: e.target.id})} name='gender' id='f' />
                 <label htmlFor='f'>انثى</label>
               </div>
             </div>
