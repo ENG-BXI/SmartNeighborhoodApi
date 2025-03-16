@@ -2,25 +2,23 @@ import React, {useContext} from 'react';
 import HeaderBuilding from '../../../Components/HeaderBuilding';
 import {useNavigate} from 'react-router';
 import {storeData} from '../../../Hook/StoreDataContext';
-import axios from 'axios';
-import {ADD_PERSON, BASEURL} from '../../../Api/EndPoint';
 
 const AddNewPerson3 = () => {
   let nav = useNavigate();
   let {data, setData} = useContext(storeData);
   console.log(data);
 
-  function handelSubmit() {
-    axios
-      .post(`${BASEURL}/${ADD_PERSON}`, data)
-      .then(data => {
-        console.log(data);
-        setData({});
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
+  // function handelSubmit() {
+  //   axios
+  //     .post(`${BASEURL}/${ADD_PERSON}`, data)
+  //     .then(data => {
+  //       console.log(data);
+  //       setData({});
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // }
   return (
     <>
       <HeaderBuilding title={'اضافة فرد'} />
