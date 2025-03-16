@@ -6,7 +6,9 @@ import {storeData} from '../../../Hook/StoreDataContext';
 
 const AddNewPerson2 = () => {
   let nav = useNavigate();
-  let {data, setData} = useContext(storeData);
+  let { data, setData } = useContext(storeData);
+console.log(data);
+  
   return (
     <>
       <HeaderBuilding title={'اضافة فرد'} />

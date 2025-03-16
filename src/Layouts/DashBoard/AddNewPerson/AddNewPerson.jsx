@@ -6,7 +6,8 @@ import {storeData} from '../../../Hook/StoreDataContext';
 
 const AddNewPerson = () => {
   let nav = useNavigate();
-  let { data, setData } = useContext(storeData);
+  let {data, setData} = useContext(storeData);
+  console.log(data);
 
   return (
     <>
@@ -19,8 +20,8 @@ const AddNewPerson = () => {
       >
         <div className='w-100'>
           <h3 className='mb-3'>البيانات الشخصية</h3>
-          <FormGroupDashBoard label='الاسم الرباعي' data={data} id='fullName'  setValue={setData} customClass={['mb-4']} placeHolder={'الاسم الرباعي'} />
-          <FormGroupDashBoard label='الايميل' data={data} id='email'  setValue={setData} inputType='email' customClass={['mb-4']} placeHolder={'اسم المستخدم'} />
+          <FormGroupDashBoard label='الاسم الرباعي' data={data} id='fullName' inputType='text' setValue={setData} customClass={['mb-4']} placeHolder={'الاسم الرباعي'} />
+          <FormGroupDashBoard label='الايميل' data={data} id='email' inputType='email' setValue={setData} customClass={['mb-4']} placeHolder={'اسم المستخدم'} />
           <FormGroupDashBoard label='رقم الجوال' data={data} id='phoneNumber'  setValue={setData} customClass={['mb-4']} inputType='number' placeHolder={'رقم الجوال'} />
           <div className='d-flex column-gap-4 mx-2 mb-5'>
             <div className='d-flex column-gap-2'>

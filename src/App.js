@@ -9,7 +9,6 @@ import ResetPassword from './Pages/Auth/ResetPassword';
 import AddNewFamily from './Layouts/DashBoard/AddNewFamily/AddNewFamily';
 import AddNewSquare from './Layouts/DashBoard/AddNewSquare/AddNewSquare';
 import AddNewPerson from './Layouts/DashBoard/AddNewPerson/AddNewPerson';
-import AddNewFamily2 from './Layouts/DashBoard/AddNewFamily/AddNewFamily2';
 import AddNewPerson2 from './Layouts/DashBoard/AddNewPerson/AddNewPerson2';
 import AddNewPerson3 from './Layouts/DashBoard/AddNewPerson/AddNewPerson3';
 import {StoreData} from './Hook/StoreDataContext';
@@ -22,7 +21,6 @@ function App() {
           <Route path='/add-new-square' element={<AddNewSquare />} />
           <Route element={<StoreData />}>
             <Route path='/add-new-family' element={<AddNewFamily />} />
-            <Route path='/add-new-family-2' element={<AddNewFamily2 />} />
           </Route>
           <Route element={<StoreData />}>
             <Route path='/add-new-person' element={<AddNewPerson />} />

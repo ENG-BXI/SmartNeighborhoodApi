@@ -2,26 +2,24 @@ import React, {useContext} from 'react';
 import HeaderBuilding from '../../../Components/HeaderBuilding';
 import {useNavigate} from 'react-router';
 import {storeData} from '../../../Hook/StoreDataContext';
+import axios from 'axios';
+import {ADD_PERSON, BASEURL} from '../../../Api/EndPoint';
 
 const AddNewPerson3 = () => {
   let nav = useNavigate();
   let {data, setData} = useContext(storeData);
+  console.log(data);
+
   function handelSubmit() {
-    // let formData = new FormData();
-    // formData.append('fullName', data.fullName);
-    // formData.append('email', data.email);
-    // formData.append('phoneNumber', data.phoneNumber);
-    // formData.append('identityNumber', data.identityNumber);
-    // formData.append('dateOfBirth', data.dateOfBirth);
-    // formData.append('gender', data.gender);
-    // formData.append('typeOfIdentity', data.typeOfIdentity);
-    // formData.append('bloodType', data.bloodType);
-    // formData.append('job', data.job);
-    // formData.append('status', data.status);
-    // formData.append('image', image);
-    // use Form Data
-    // for reset storeData
-    setData({});
+    axios
+      .post(`${BASEURL}/${ADD_PERSON}`, data)
+      .then(data => {
+        console.log(data);
+        setData({});
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
   return (
     <>
@@ -29,7 +27,7 @@ const AddNewPerson3 = () => {
       <form
         onSubmit={e => {
           e.preventDefault();
-          handelSubmit();
+          // handelSubmit();
         }}
         className='d-flex w-50 mx-auto flex-column align-items-center text-center row-gap-4 mt-3'
       >
