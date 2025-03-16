@@ -3,12 +3,17 @@ import FormGroupDashBoard from '../../../Components/FormGroupDashBoard';
 import HeaderBuilding from '../../../Components/HeaderBuilding';
 import {useNavigate} from 'react-router';
 import {storeData} from '../../../Hook/StoreDataContext';
+import axios from 'axios';
+import {BASEURL, GET_ALL_FAMILY} from '../../../Api/EndPoint';
 
 const AddNewPerson2 = () => {
   let nav = useNavigate();
-  let { data, setData } = useContext(storeData);
-console.log(data);
-  
+  let {data, setData} = useContext(storeData);
+  console.log(data);
+  function d() {
+    axios.get(`${BASEURL}/${GET_ALL_FAMILY}`).then(data => console.log(data));
+  }
+  d();
   return (
     <>
       <HeaderBuilding title={'اضافة فرد'} />
@@ -30,13 +35,13 @@ console.log(data);
                 <option value='default' disabled>
                   نوع الهوية
                 </option>
-                <option value='i1'>بطاقة</option>
-                <option value='i2'>جواز سفر</option>
+                <option value='ID_C'>بطاقة</option>
+                <option value='PASS'>جواز سفر</option>
               </select>
               <FormGroupDashBoard data={data} id='identityNumber' setValue={setData} inputType='number' placeHolder={'رقم الهوية'} />
             </div>
           </div>
-          <FormGroupDashBoard label='تاريخ الميلاد' data={data} id='dateOfBirth' setValue={setData} inputType='date' customClass={['mb-4']} placeHolder={'الاسم الرباعي'} />
+          <FormGroupDashBoard label='تاريخ الميلاد' isDate data={data} id='dateOfBirth' setValue={setData} inputType='date' customClass={['mb-4']} placeHolder={'الاسم الرباعي'} />
           <div className='text-end mb-4'>
             <label className='mb-2' htmlFor=''>
               فصيلة الدم
@@ -46,8 +51,14 @@ console.log(data);
               <option value='default' disabled>
                 حدد فصيلة دمك
               </option>
-              <option value='s1'>بطاقة</option>
-              <option value='s2'>جواز سفر</option>
+              <option value='A+'>A+</option>
+              <option value='A-'>A-</option>
+              <option value='B+'>B+</option>
+              <option value='B-'>B-</option>
+              <option value='AB+'>AB+</option>
+              <option value='AB-'>AB-</option>
+              <option value='O+'>O+</option>
+              <option value='O-'>O-</option>
             </select>
           </div>
           <div className='text-end mb-4'>
@@ -56,12 +67,12 @@ console.log(data);
             </label>
             <div style={{accentColor: 'var(--main-color)'}} className='d-flex column-gap-4'>
               <div className='d-flex column-gap-2'>
-                <input type='radio' value={data.gender} onChange={e => setData({...data, gender: e.target.id})} id='m' name='gender' />
-                <label htmlFor='m'>ذكر</label>
+                <input type='radio' value={data.gender} onChange={e => setData({...data, gender: e.target.id})} id='0' name='gender' />
+                <label htmlFor='0'>ذكر</label>
               </div>
               <div className='d-flex column-gap-2'>
-                <input type='radio' value={data.gender} onChange={e => setData({...data, gender: e.target.id})} name='gender' id='f' />
-                <label htmlFor='f'>انثى</label>
+                <input type='radio' value={data.gender} onChange={e => setData({...data, gender: e.target.id})} name='gender' id='1' />
+                <label htmlFor='1'>انثى</label>
               </div>
             </div>
           </div>

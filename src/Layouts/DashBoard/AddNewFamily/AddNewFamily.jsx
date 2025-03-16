@@ -75,11 +75,15 @@ const AddNewFamily = () => {
               <option value='default' disabled>
                 حدد تصيف الاسرة
               </option>
-              {!loading &&
-                allFamilyCategory.length > 0 &&
+              {!loading && allFamilyCategory.length > 0 ? (
                 allFamilyCategory.map(element => {
                   return <option value={element.id}>{element.name}</option>;
-                })}
+                })
+              ) : (
+                <option value='0' disabled>
+                  Loading
+                </option>
+              )}
             </select>
           </div>
           {/* select */}
@@ -91,11 +95,15 @@ const AddNewFamily = () => {
               <option value='default' disabled>
                 حدد نوع الاسرة
               </option>
-              {!loading &&
-                allFamilyType.length > 0 &&
+              {!loading && allFamilyType.length > 0 ? (
                 allFamilyType.map(element => {
                   return <option value={element.id}>{element.name}</option>;
-                })}
+                })
+              ) : (
+                <option value='0' disabled>
+                  Loading
+                </option>
+              )}
             </select>
           </div>
           {/* select */}
@@ -107,11 +115,15 @@ const AddNewFamily = () => {
               <option value='default' disabled>
                 حدد المربع السكني
               </option>
-              {!loading &&
-                allBlock.length > 0 &&
+              {!loading && allBlock.length > 0 ? (
                 allBlock.map(element => {
                   return <option value={element.id}>{element.name}</option>;
-                })}
+                })
+              ) : (
+                <option value='0' disabled>
+                  Loading
+                </option>
+              )}
             </select>
           </div>
           <button className='w-100 mb-3 '>اضافة</button>

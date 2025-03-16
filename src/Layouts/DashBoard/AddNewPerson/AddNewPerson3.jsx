@@ -2,30 +2,40 @@ import React, {useContext} from 'react';
 import HeaderBuilding from '../../../Components/HeaderBuilding';
 import {useNavigate} from 'react-router';
 import {storeData} from '../../../Hook/StoreDataContext';
+import axios from 'axios';
+import { ADD_PERSON, BASEURL } from '../../../Api/EndPoint';
 
 const AddNewPerson3 = () => {
   let nav = useNavigate();
   let {data, setData} = useContext(storeData);
   console.log(data);
 
-  // function handelSubmit() {
-  //   axios
-  //     .post(`${BASEURL}/${ADD_PERSON}`, data)
-  //     .then(data => {
-  //       console.log(data);
-  //       setData({});
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // }
+  function handelSubmit() {
+    axios
+      .post(`${BASEURL}/${ADD_PERSON}`, {
+      ...data,
+      familyMembers: [
+        {
+          familyId: 0,
+          memberTypeId: 0
+        }
+      ]
+    })
+      .then(data => {
+        console.log(data);
+        setData({});
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
   return (
     <>
       <HeaderBuilding title={'اضافة فرد'} />
       <form
         onSubmit={e => {
           e.preventDefault();
-          // handelSubmit();
+          handelSubmit();
         }}
         className='d-flex w-50 mx-auto flex-column align-items-center text-center row-gap-4 mt-3'
       >
@@ -66,14 +76,7 @@ const AddNewPerson3 = () => {
               </div>
             </div>
           </div>
-          <button
-            onClick={() => {
-              // nav('/');
-            }}
-            className='w-100 mb-3 '
-          >
-            إضافة{' '}
-          </button>
+          <button className='w-100 mb-3 '>إضافة </button>
           <button
             onClick={() => {
               nav(-1);
@@ -81,7 +84,7 @@ const AddNewPerson3 = () => {
             className='alt-button w-100 btn'
           >
             السابق
-          </button>{' '}
+          </button>
         </div>
       </form>
     </>
