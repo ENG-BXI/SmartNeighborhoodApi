@@ -8,7 +8,6 @@ import { ADD_PERSON, BASEURL } from '../../../Api/EndPoint';
 const AddNewPerson3 = () => {
   let nav = useNavigate();
   let {data, setData} = useContext(storeData);
-  console.log(data);
 
   function handelSubmit() {
     axios

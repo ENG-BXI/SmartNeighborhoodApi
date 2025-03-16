@@ -3,17 +3,10 @@ import FormGroupDashBoard from '../../../Components/FormGroupDashBoard';
 import HeaderBuilding from '../../../Components/HeaderBuilding';
 import {useNavigate} from 'react-router';
 import {storeData} from '../../../Hook/StoreDataContext';
-import axios from 'axios';
-import {BASEURL, GET_ALL_FAMILY} from '../../../Api/EndPoint';
 
 const AddNewPerson2 = () => {
   let nav = useNavigate();
   let {data, setData} = useContext(storeData);
-  console.log(data);
-  function d() {
-    axios.get(`${BASEURL}/${GET_ALL_FAMILY}`).then(data => console.log(data));
-  }
-  d();
   return (
     <>
       <HeaderBuilding title={'اضافة فرد'} />
