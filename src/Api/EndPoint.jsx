@@ -16,3 +16,4 @@ export const GET_ALL_FAMILY_TYPE = 'FamilyTypes/GetAll';
 export const ADD_FAMILY = 'Family/Add';
 // Person
 export const ADD_PERSON = 'Person/Add';
+export const CHAT_AI = 'Chat/Chat';

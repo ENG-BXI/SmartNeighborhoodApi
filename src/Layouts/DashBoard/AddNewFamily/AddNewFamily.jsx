@@ -76,8 +76,8 @@ const AddNewFamily = () => {
                 حدد تصيف الاسرة
               </option>
               {!loading && allFamilyCategory.length > 0 ? (
-                allFamilyCategory.map(element => {
-                  return <option value={element.id}>{element.name}</option>;
+                allFamilyCategory.map((element,index) => {
+                  return <option key={index} value={element.id}>{element.name}</option>;
                 })
               ) : (
                 <option value='0' disabled>
@@ -96,8 +96,8 @@ const AddNewFamily = () => {
                 حدد نوع الاسرة
               </option>
               {!loading && allFamilyType.length > 0 ? (
-                allFamilyType.map(element => {
-                  return <option value={element.id}>{element.name}</option>;
+                allFamilyType.map((element ,index) => {
+                  return <option key={index} value={element.id}>{element.name}</option>;
                 })
               ) : (
                 <option value='0' disabled>
@@ -116,8 +116,8 @@ const AddNewFamily = () => {
                 حدد المربع السكني
               </option>
               {!loading && allBlock.length > 0 ? (
-                allBlock.map(element => {
-                  return <option value={element.id}>{element.name}</option>;
+                allBlock.map((element,index) => {
+                  return <option key={index} value={element.id}>{element.name}</option>;
                 })
               ) : (
                 <option value='0' disabled>
