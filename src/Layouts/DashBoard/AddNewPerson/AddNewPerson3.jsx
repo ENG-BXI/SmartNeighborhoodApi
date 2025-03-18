@@ -1,31 +1,36 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import HeaderBuilding from '../../../Components/HeaderBuilding';
 import {useNavigate} from 'react-router';
 import {storeData} from '../../../Hook/StoreDataContext';
 import axios from 'axios';
-import { ADD_PERSON, BASEURL } from '../../../Api/EndPoint';
+import {ADD_PERSON, BASEURL} from '../../../Api/EndPoint';
 
 const AddNewPerson3 = () => {
   let nav = useNavigate();
-  let {data, setData} = useContext(storeData);
+  let { data, setData } = useContext(storeData);
+  let [loading, setLoading] = useState(false);
 
   function handelSubmit() {
+    setLoading(true)
     axios
       .post(`${BASEURL}/${ADD_PERSON}`, {
-      ...data,
-      familyMembers: [
-        {
-          familyId: 0,
-          memberTypeId: 0
-        }
-      ]
-    })
+        ...data,
+        familyMembers: [
+          {
+            familyId: 1,
+            memberTypeId: 1
+          }
+        ]
+      })
       .then(data => {
         console.log(data);
         setData({});
+        nav("/")
       })
       .catch(err => {
         console.log(err);
+      }).finally(() => {
+        setLoading(false)
       });
   }
   return (
@@ -76,6 +81,7 @@ const AddNewPerson3 = () => {
             </div>
           </div>
           <button className='w-100 mb-3 '>إضافة </button>
+          {loading && <p>loading ...</p>}
           <button
             onClick={() => {
               nav(-1);
