@@ -7,8 +7,9 @@ import {ChatBotLogo} from '../../Assets/Images';
 function ChatBot() {
   let [messages, setMessages] = useState([{sender: 'bot', text: 'أهلاً بك! كيف يمكنني مساعدتك؟'}]);
   let [input, setInput] = useState(''); // تخزين النص المكتوب
-  let [isShowBot, setIsShowBot] = useState(false);
-  let startMessage = 'دائما رد عليي ب اهلا مدير وبالياباني  ';
+    let [isShowBot, setIsShowBot] = useState(false);
+    // رساله تعرفيه للبوت عن النظام 
+  let startMessage ="";
   let sendMessage = async e => {
     e.preventDefault();
     if (!input.trim()) return;
@@ -18,14 +19,14 @@ function ChatBot() {
     let senderMessage = messages.length > 1 ? input : startMessage + input;
     try {
       let response = await axios.post(`${BASEURL}/${CHAT_AI}?message=${encodeURIComponent(senderMessage)}`);
-
+         setInput('');
       setMessages([...newMessages, {sender: 'bot', text: response.data.data}]);
     } catch (error) {
       console.error('Error sending message:', error);
       setMessages([...newMessages, {sender: 'bot', text: 'حدث خطأ، حاول لاحقًا!'}]);
     }
 
-    setInput('');
+   
   };
 
   return (
