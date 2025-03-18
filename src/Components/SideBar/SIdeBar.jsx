@@ -10,7 +10,7 @@ let SideBarItemData = [
   {icon: PersonIcon, title: 'جلسات الصلح'},
   {icon: Handshake, title: 'الاتفاقات'},
   {icon: Hand, title: 'التعهدات'},
-  {icon: Iconanoon, title: 'المساعدات'},
+  {icon: Iconanoon, title: 'المساعدات', path: 'charitable'},
   {icon: Security, title: 'الامن'},
   {icon: TaskList, title: 'خطط الازمات'},
   {icon: HelpIcon, title: 'المناشدات'}
@@ -23,7 +23,7 @@ function SideBar() {
         <h3>الحارة الذكية</h3>
       </div>
       <GroupTitle title='الأقسام' />
-        {SideBarItemData.map((item, index) => <SideBarItem key={index} active={index === 0} icon={item.icon} title={item.title} />)}
+        {SideBarItemData.map((item, index) => <SideBarItem key={index} path={item.path} active={index === 0} icon={item.icon} title={item.title} />)}
         <div className='line'></div>
         <SideBarItem icon={Logout} title="تسجيل الخروج" />
     </aside>

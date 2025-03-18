@@ -15,6 +15,8 @@ const AddNewFamily = () => {
   let [allFamilyCategory, setAllFamilyCategory] = useState([]);
   let [allFamilyType, setAllFamilyType] = useState([]);
   let [allBlock, setAllBlock] = useState([]);
+  let [accept, setAccept] = useState(false);
+
   async function GetAllFamilyCategory() {
     let res = await axios.get(`${BASEURL}/${GET_ALL_FAMILY_CATEGORY}`);
     setAllFamilyCategory(res.data.data);
@@ -39,7 +41,9 @@ const AddNewFamily = () => {
     }
   }
   function handleSubmit() {
-    setSubmitLoading(true)
+    setAccept(true);
+    if (data.blockId === undefined || data.familyCatgoryId === undefined || data.familyTypeId === undefined || data.name === undefined) return;
+    setSubmitLoading(true);
     axios
       .post(`${BASEURL}/${ADD_FAMILY}`, data)
       .then(data => {
@@ -65,7 +69,7 @@ const AddNewFamily = () => {
         className='d-flex w-50 mx-auto flex-column align-items-center text-center row-gap-3 mt-3'
       >
         <div className='w-100'>
-          <FormGroupDashBoard data={data} label='اسم الاسرة' setValue={setData} inputType='text' id='name' customClass={['mb-3']} placeHolder={'مثلا : عائلة الاحمدي'} />
+          <FormGroupDashBoard data={data} isRequired={true} label='اسم الاسرة' setValue={setData} inputType='text' id='name' customClass={['mb-3']} placeHolder={'مثلا : عائلة الاحمدي'} />
           {/* select */}
           <div className='text-end mb-3'>
             <label className='form-label ' htmlFor=''>
@@ -76,8 +80,12 @@ const AddNewFamily = () => {
                 حدد تصيف الاسرة
               </option>
               {!loading && allFamilyCategory.length > 0 ? (
-                allFamilyCategory.map((element,index) => {
-                  return <option key={index} value={element.id}>{element.name}</option>;
+                allFamilyCategory.map((element, index) => {
+                  return (
+                    <option key={index} value={element.id}>
+                      {element.name}
+                    </option>
+                  );
                 })
               ) : (
                 <option value='0' disabled>
@@ -85,6 +93,7 @@ const AddNewFamily = () => {
                 </option>
               )}
             </select>
+            {accept && data.familyCatgoryId === undefined && <p className='text-danger mt-2'>اختر اولا</p>}
           </div>
           {/* select */}
           <div className='text-end mb-3'>
@@ -96,8 +105,12 @@ const AddNewFamily = () => {
                 حدد نوع الاسرة
               </option>
               {!loading && allFamilyType.length > 0 ? (
-                allFamilyType.map((element ,index) => {
-                  return <option key={index} value={element.id}>{element.name}</option>;
+                allFamilyType.map((element, index) => {
+                  return (
+                    <option key={index} value={element.id}>
+                      {element.name}
+                    </option>
+                  );
                 })
               ) : (
                 <option value='0' disabled>
@@ -105,6 +118,7 @@ const AddNewFamily = () => {
                 </option>
               )}
             </select>
+            {accept && data.familyTypeId === undefined && <p className='text-danger mt-2'>اختر اولا</p>}
           </div>
           {/* select */}
           <div className='text-end mb-3'>
@@ -116,8 +130,12 @@ const AddNewFamily = () => {
                 حدد المربع السكني
               </option>
               {!loading && allBlock.length > 0 ? (
-                allBlock.map((element,index) => {
-                  return <option key={index} value={element.id}>{element.name}</option>;
+                allBlock.map((element, index) => {
+                  return (
+                    <option key={index} value={element.id}>
+                      {element.name}
+                    </option>
+                  );
                 })
               ) : (
                 <option value='0' disabled>
@@ -125,6 +143,7 @@ const AddNewFamily = () => {
                 </option>
               )}
             </select>
+            {accept && data.blockId === undefined && <p className='text-danger mt-2'>اختر اولا</p>}
           </div>
           <button className='w-100 mb-3 '>اضافة</button>
           {submitLoading && <p>loading ...</p>}

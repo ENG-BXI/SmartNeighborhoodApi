@@ -7,7 +7,6 @@ import {storeData} from '../../../Hook/StoreDataContext';
 const AddNewPerson = () => {
   let nav = useNavigate();
   let {data, setData} = useContext(storeData);
-  console.log(data);
 
   return (
     <>
@@ -15,23 +14,24 @@ const AddNewPerson = () => {
       <form
         onSubmit={e => {
           e.preventDefault();
+          nav('/add-new-person-2');
         }}
         className='d-flex w-50 mx-auto flex-column align-items-center text-center row-gap-4 mt-3'
       >
         <div className='w-100'>
           <h3 className='mb-3'>البيانات الشخصية</h3>
-          <FormGroupDashBoard label='الاسم الرباعي' data={data} id='fullName' inputType='text' setValue={setData} customClass={['mb-4']} placeHolder={'الاسم الرباعي'} />
-          <FormGroupDashBoard label='الايميل' data={data} id='email' inputType='email' setValue={setData} customClass={['mb-4']} placeHolder={'اسم المستخدم'} />
-          <FormGroupDashBoard label='رقم الجوال' data={data} id='phoneNumber'  setValue={setData} customClass={['mb-4']} inputType='number' placeHolder={'رقم الجوال'} />
+          <FormGroupDashBoard label='الاسم الرباعي' isRequired={true} data={data} id='fullName' inputType='text' setValue={setData} customClass={['mb-4']} placeHolder={'الاسم الرباعي'} />
+          <FormGroupDashBoard label='الايميل' isRequired={true} data={data} id='email' inputType='email' setValue={setData} customClass={['mb-4']} placeHolder={'اسم المستخدم'} />
+          <FormGroupDashBoard label='رقم الجوال' isRequired={true} data={data} id='phoneNumber' setValue={setData} customClass={['mb-4']} inputType='number' placeHolder={'رقم الجوال'} />
+          <button className='w-100 mb-3 '>التالي</button>
           <button
             onClick={() => {
-              nav('/add-new-person-2');
+              nav(-1);
             }}
-            className='w-100 mb-3 '
+            className='alt-button w-100 btn'
           >
-            التالي
-          </button>
-          <button className='alt-button w-100 btn'>الفاء</button>{' '}
+            الفاء
+          </button>{' '}
         </div>
       </form>
     </>

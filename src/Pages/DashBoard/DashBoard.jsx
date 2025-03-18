@@ -11,7 +11,7 @@ const DashBoard = () => {
       setIsLoading(false);
     }, 3000);
   });
- 
+
   return (
     <div className='d-flex min-vh-100'>
       <SideBar />
@@ -19,13 +19,12 @@ const DashBoard = () => {
         <HeaderDashBoard />
         <div className='px-4'>
           <Outlet />
-          <ChatBot/>
+          <ChatBot />
         </div>
       </div>
       {isLoading && <LoadingPage />}
     </div>
   );
 };
-
 
 export default DashBoard;

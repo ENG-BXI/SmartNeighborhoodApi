@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, {useState} from 'react';
 import FormGroupDashBoard from '../../../Components/FormGroupDashBoard';
 import HeaderBuilding from '../../../Components/HeaderBuilding';
 import {useNavigate} from 'react-router';
@@ -8,17 +8,25 @@ import {ADD_BLOCK, BASEURL} from '../../../Api/EndPoint';
 const AddNewSquare = () => {
   let nav = useNavigate();
   let [formData, setFormData] = useState({name: null, personId: null, email: null, password: null});
-  let [loading ,setLoading] = useState(false)
+  let [loading, setLoading] = useState(false);
+  let [accept, setAccept] = useState(false);
   function handleSubmit() {
-    setLoading(true)
+    if (formData.email === null || formData.name === null || formData.password === null || formData.personId === null) {
+      setAccept(true);
+      return;
+    }
+
+    setLoading(true);
     axios
       .post(`${BASEURL}/${ADD_BLOCK}`, formData)
       .then(data => {
         nav('/');
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log(err);
+        setLoading(false)
+      });
   }
-
 
   return (
     <>
@@ -32,7 +40,7 @@ const AddNewSquare = () => {
       >
         <div className='w-100'>
           <h3 className='mb-3'>اسم المربع السكني</h3>
-          <FormGroupDashBoard data={formData} id='name' setValue={setFormData} inputType='text' customClass={['mb-3']} placeHolder={'مثلا : مربع محمد سامي'} />
+          <FormGroupDashBoard isRequired={true} data={formData} id='name' setValue={setFormData} inputType='text' customClass={['mb-3']} placeHolder={'مثلا : مربع محمد سامي'} />
         </div>
         <div className='w-100'>
           <h3 className='mb-4'>مسئول المربع السكني</h3>
@@ -43,6 +51,7 @@ const AddNewSquare = () => {
             </label>
             <select
               className='form-select'
+              required
               value={formData.personId ?? 'default'}
               onChange={e => {
                 setFormData({...formData, personId: e.target.value});
@@ -58,12 +67,20 @@ const AddNewSquare = () => {
               <option value='0'>محمد رياض </option>
               <option value='0'>صالح منصور</option>
             </select>
+            {accept && formData.personId === null && <p className='text-danger mt-2'>اختر اولا</p>}
           </div>
-          <FormGroupDashBoard label='ايميل' data={formData} id='email' setValue={setFormData} inputType='email' customClass={['mb-3']} placeHolder={'اسم المستخدم'} />
-          <FormGroupDashBoard label='كلمة المرور' data={formData} id='password' setValue={setFormData} customClass={['mb-3']} inputType='password' placeHolder={'كلمة المرور'} />
+          <FormGroupDashBoard label='ايميل' isRequired={true} data={formData} id='email' setValue={setFormData} inputType='email' customClass={['mb-3']} placeHolder={'اسم المستخدم'} />
+          <FormGroupDashBoard label='كلمة المرور' isRequired={true} data={formData} id='password' setValue={setFormData} customClass={['mb-3']} inputType='password' placeHolder={'كلمة المرور'} />
           <button className='w-100 mb-3 '>إضافة</button>
           {loading && <p>loading ...</p>}
-          <button className='alt-button w-100 btn'>الفاء</button>
+          <button
+            onClick={() => {
+              nav(-1);
+            }}
+            className='alt-button w-100 btn'
+          >
+            الفاء
+          </button>
         </div>
       </form>
     </>

@@ -12,12 +12,14 @@ import AddNewPerson from './Layouts/DashBoard/AddNewPerson/AddNewPerson';
 import AddNewPerson2 from './Layouts/DashBoard/AddNewPerson/AddNewPerson2';
 import AddNewPerson3 from './Layouts/DashBoard/AddNewPerson/AddNewPerson3';
 import {StoreData} from './Hook/StoreDataContext';
+import Charitable from './Layouts/DashBoard/Charitable/Charitable';
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<DashBoard />}>
           <Route path='/' element={<Building />} />
+          <Route path='/charitable' element={<Charitable />} />
           <Route path='/add-new-square' element={<AddNewSquare />} />
           <Route element={<StoreData />}>
             <Route path='/add-new-family' element={<AddNewFamily />} />

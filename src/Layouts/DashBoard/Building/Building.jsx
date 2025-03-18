@@ -19,8 +19,12 @@ const Building = () => {
     ToggleButton.current.classList.toggle('show');
   }
   useEffect(() => {
-    axios.get(`${BASEURL}/${GET_ALL_BLOCK}`).then(data => { setNeighborhoodData(data.data.data); console.log(data);
-    });
+    axios
+      .get(`${BASEURL}/${GET_ALL_BLOCK}`)
+      .then(data => {
+        setNeighborhoodData(data.data.data);
+      })
+      .catch(err => console.log(err));
   }, []);
   return (
     <div className='building'>
@@ -49,7 +53,7 @@ const Building = () => {
         </div>
       </div>
       {/* <PlaceInLine /> */}
-      <div className='d-flex flex-wrap column-gap-2'>{neighborhoodData.length > 0 && neighborhoodData.map((element, index) => <NeighborhoodCard key={index} Neighborhood={element.name} NeighborhoodPersonProfile={Neighborhood_1_Person} NumberOfFamily={element.families.length  || "لاتوجد "} PersonName='عبدالله سالم' Image={Neighborhood_1} />)}</div>
+      <div className='d-flex flex-wrap column-gap-2'>{neighborhoodData.length > 0 && neighborhoodData.map((element, index) => <NeighborhoodCard key={index} Neighborhood={element.name} NeighborhoodPersonProfile={Neighborhood_1_Person} NumberOfFamily={element.families.length || 'لاتوجد '} PersonName='عبدالله سالم' Image={Neighborhood_1} />)}</div>
     </div>
   );
 };

@@ -12,11 +12,9 @@ aside {
 .side-bar-item {
     padding-block: 0.8rem;
     cursor: pointer;
+    color: var(--text-alt-color);
 }
-.side-bar-item img {
-    fill: red;
-    color: red;
-}
+
 
 .side-bar-item.active {
     color: var(--main-color);
@@ -27,9 +25,10 @@ aside {
     background-color: #b3b5f7;
     color: var(--main-color);
 }
-.line{
+
+.line {
     height: 1px;
-    background-color:#636AE8;
+    background-color: #636AE8;
     margin-block: 1rem;
     width: 100%;
 }

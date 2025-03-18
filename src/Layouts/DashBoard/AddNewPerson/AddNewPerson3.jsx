@@ -7,11 +7,15 @@ import {ADD_PERSON, BASEURL} from '../../../Api/EndPoint';
 
 const AddNewPerson3 = () => {
   let nav = useNavigate();
-  let { data, setData } = useContext(storeData);
+  let {data, setData} = useContext(storeData);
   let [loading, setLoading] = useState(false);
+  let [accept, setAccept] = useState(false);
+  console.log(data);
 
   function handelSubmit() {
-    setLoading(true)
+    setAccept(true);
+    if (data.bloodType === undefined || data.dateOfBirth === undefined || data.email === undefined || data.fullName === undefined || data.gender === undefined || data.identityNumber === undefined || data.job === undefined || data.phoneNumber === undefined || data.status === undefined || data.typeOfIdentity === undefined) return;
+    setLoading(true);
     axios
       .post(`${BASEURL}/${ADD_PERSON}`, {
         ...data,
@@ -23,14 +27,14 @@ const AddNewPerson3 = () => {
         ]
       })
       .then(data => {
-        console.log(data);
         setData({});
-        nav("/")
+        nav('/');
       })
       .catch(err => {
         console.log(err);
-      }).finally(() => {
-        setLoading(false)
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }
   return (
@@ -63,7 +67,8 @@ const AddNewPerson3 = () => {
               </option>
               <option value='s1'>?</option>
               <option value='s2'>??</option>
-            </select>
+            </select>{' '}
+            {accept && data.job === undefined && <p className='text-danger mt-2'>اختر اولا</p>}
           </div>
           <div className='text-end mb-4'>
             <label className='mb-2' htmlFor=''>
@@ -79,6 +84,7 @@ const AddNewPerson3 = () => {
                 <label htmlFor='s'>اعزب</label>
               </div>
             </div>
+            {accept && data.status === undefined && <p className='text-danger mt-2'>اختر اولا</p>}
           </div>
           <button className='w-100 mb-3 '>إضافة </button>
           {loading && <p>loading ...</p>}
