@@ -5,7 +5,7 @@ import SideBarItem from './SideBarItem';
 
 // Items Data
 let SideBarItemData = [
-  {icon: BiBuildings, title: 'كشف عام للوحدة'},
+  {icon: BiBuildings, title: 'كشف عام للوحدة', path: '/'},
   {icon: FluentMegaphoneLoud, title: 'الإعلانات'},
   {icon: PersonIcon, title: 'جلسات الصلح'},
   {icon: Handshake, title: 'الاتفاقات'},
@@ -23,13 +23,13 @@ function SideBar() {
         <h3>الحارة الذكية</h3>
       </div>
       <GroupTitle title='الأقسام' />
-        {SideBarItemData.map((item, index) => <SideBarItem key={index} path={item.path} active={index === 0} icon={item.icon} title={item.title} />)}
-        <div className='line'></div>
-        <SideBarItem icon={Logout} title="تسجيل الخروج" />
+      {SideBarItemData.map((item, index) => (
+        <SideBarItem key={index} path={item.path} active={index === 0} icon={item.icon} title={item.title} />
+      ))}
+      <div className='line'></div>
+      <SideBarItem icon={Logout} title='تسجيل الخروج' />
     </aside>
   );
 }
-
-
 
 export default SideBar;

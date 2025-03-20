@@ -1,0 +1,30 @@
+.toggle {
+    font-size: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+}
+
+.filter {
+    font-size: 15px;
+    cursor: pointer;
+}
+.project-card{
+    width: 300px;
+}
+.bg-image {
+    width: min-content;
+}
+.my-progress {
+    height: 5px;
+    width: 100%;
+    position: relative;
+}
+
+.inner-progress {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: #E5A10C;
+}

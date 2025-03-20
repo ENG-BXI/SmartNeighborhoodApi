@@ -26,3 +26,4 @@ export {default as AppleLogo} from './Auth/appleLogo.svg';
 export {default as AddNewFamilyPerson} from './AddNewFamilyPerson.svg';
 export {default as ImageUpload} from './ImageUpload.svg';
 export {default as ChatBotLogo} from './ChatBotLogo.svg';
+export {default as Tree} from './tree.svg';
